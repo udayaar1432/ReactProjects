@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #021431;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.header a {
+    margin: 5px;
+}
