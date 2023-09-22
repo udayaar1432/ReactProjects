@@ -1,7 +1,8 @@
 import { useState } from "react";
+// import { Link } from 'react-router-dom';
 
 function Register() {
-  const [login, setLogin] = useState({ Username: "", email: "", password: "" });
+  const [login, setLogin] = useState({ Username: "", email: "", password: "", });
   const handleChange = (ev) => {
     const { name, value } = ev && ev.target;
     setLogin((prev) => ({ ...prev, [name]: value }));
@@ -52,11 +53,11 @@ function Register() {
           <button className="btnlogin btn">REGISTER</button>
         </div>
         <p>
-          Already a member?<a href="#">Login</a>
+          {/* Already a member?<Link to="/">Login</Link> */}
         </p>
       </form>
     </div>
   );
-}
+  }
 
 export default Register;
