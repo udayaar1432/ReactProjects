@@ -64,7 +64,9 @@ li {
 .cart {
   display: flex;
 }
-
+.active {
+  background-color: black;
+}
 .pages:active {
   background-color: #021431;
 }
