@@ -2,10 +2,16 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   font-family: sans-serif;
   margin: 0;
-  padding: 10px;
+  border: 1px solid red;
 }
 
 a {
@@ -64,11 +70,15 @@ li {
 .cart {
   display: flex;
 }
+
 .active {
   background-color: black;
-}
-.pages:active {
-  background-color: #021431;
+  color: #c7c9d1;
+  align-items: center;
+  margin: 0px 10px 0px 0px;
+  padding: 8px 10px 5px 10px;
+  border-radius: 5px;
+  height: 2rem;
 }
 
 .pages:hover {
@@ -135,12 +145,12 @@ li {
   margin-top: 80px;
   gap: 2rem;
 }
-.products img{
-  width:250px;
-  height:200px;
-  border-radius:8px;
-  background-color: whitesmoke;
 
+.products img {
+  width: 250px;
+  height: 200px;
+  border-radius: 8px;
+  background-color: whitesmoke;
 }
 
 #productheading {
@@ -152,6 +162,40 @@ li {
   font-size: 20px;
   color: #394e6a;
   font-weight: 700;
+}
+
+.m {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+  padding: 10px;
+  margin: 2rem;
+  border-radius: 5px;
+  box-shadow: #394e6a;
+}
+
+.m p {
+  font-size: 20px;
+  color: #394e6a;
+  font-weight: 700;
+}
+
+.m span {
+  margin: 3rem;
+  font-size: 18px;
+  color: #394e6a;
+  font-weight: 500;
+}
+
+.sm {
+  display: flex;
+}
+
+.sm img {
+  width: 130px;
+  height: 120px;
+  margin: 1rem 3rem 1rem 1rem;
+  border-radius: 9px;
 }
 
 .about {
@@ -180,7 +224,6 @@ li {
   border-radius: 10px;
   padding: 10px 2rem;
   margin-top: 20px;
-  
 }
 
 .login h3 {
@@ -274,3 +317,47 @@ li {
 .btnreset:hover {
   background-color: #ab3b98;
 }
+
+.productdetails {
+  display: flex;
+  gap: 2rem;
+}
+
+.productdetails img {
+  width: 27rem;
+  height: 24rem;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.productdetailscontent {
+  width: 30rem;
+}
+
+.productdetailscontent h2 {
+  color: #394e6a;
+  font-size: 2rem;
+}
+
+.productdetailscontent h4 {
+  color: #c7c9d1;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.productdetailscontent p{
+  line-height: 2rem;
+  font-size: large;
+  color: #394e6a;
+}
+
+.detailsbtn {
+  background-color: #057aff;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 8px;
+  border: none;
+}
+
+/* .detailsbtn:hover {
+  background-color: #0069e0;
+} */
