@@ -9,10 +9,13 @@ import Register from './components/register/Register';
 import Products from './components/home/Products';
 import About from './components/about/About';
 import Filterform from './components/products/Filterform';
-import ProductsList, { ProductDetails } from './components/products/Productslist';
+
+// import ProductsList, { ProductDetails } from './components/products/Productslist';
 import Product from "./components/products/Product";
+
 import Cart from "./components/cart/Cart";
 import './App.css';
+import { ProductDetails } from "./components/products/productdetails";
 
 function App() {
   return (
@@ -46,3 +49,7 @@ function App() {
 }
 
 export default App;
+
+
+
+// https://codesandbox.io/s/userreducer-usecontext-lv4md6?file=/src/CartContext.js
