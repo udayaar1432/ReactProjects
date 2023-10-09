@@ -6,16 +6,11 @@ import Home from './components/home/Homecontent';
 import Login from './components/login/Login';
 import Navbar from './components/navbar/Navbar';
 import Register from './components/register/Register';
-import Products from './components/home/Products';
 import About from './components/about/About';
-import Filterform from './components/products/Filterform';
-
-// import ProductsList, { ProductDetails } from './components/products/Productslist';
 import Product from "./components/products/Product";
-
 import Cart from "./components/cart/Cart";
+import  ProductDescription  from "./components/products/productdetails";
 import './App.css';
-import { ProductDetails } from "./components/products/productdetails";
 
 function App() {
   return (
@@ -23,7 +18,6 @@ function App() {
       <BrowserRouter>
         <Header />
         <Navbar />
-
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/about" element={<About />} />
@@ -31,19 +25,10 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/products" element={<Product />} />
-          <Route exact path="/products/:id" element={<ProductDetails />} />
+          <Route exact path="/products/:id" element={<ProductDescription />} />
           <Route exact path="/cart" element={<Cart/>}/>
         </Routes>
       </BrowserRouter>
-      {/* <Header />
-       <Navbar />
-       <Login />
-       <Register/>
-       <Home/>
-       <Products/>
-       <About/>
-       <Filterform/>
-       <ProductsList/>  */}
     </div>
   );
 }

@@ -42,9 +42,9 @@ function Navbar() {
       </div>
       <div className="cart">
         <div>
-          <a href="#">
+          <button>
             <BsFillMoonFill />
-          </a>
+          </button>
         </div>
 
         <div>

@@ -1,20 +1,25 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext, CartContextProvider } from "../cart/cartcontext";
 const productObj = {
-  options: [1, 2, 3, 4, 5]
-}
+  options: [1, 2, 3, 4, 5],
+};
 function ProductDetails() {
   const [productDetails, setProductDetails] = useState(null);
+  const [option] = useState(productObj.options);
+
+  const { dispatch } = useContext(CartContext);
   const { id } = useParams();
   useEffect(() => {
-    axios.get(`https://strapi-store-server.onrender.com/api/products/${id}`)
-      .then((res) => setProductDetails(res.data.data))
-  }, [id])
-  const [options] = useState(productObj.options);
+    fetch(`https://strapi-store-server.onrender.com/api/products/${id}`)
+      .then((res) => res.json())
+      .then((res) => setProductDetails(res.data.data));
+  }, [id]);
+
   return (
     <>
-      {productDetails &&
+
+      {productDetails && (
         <div className="productDetails">
           <img
             src={productDetails.attributes.image}
@@ -28,23 +33,29 @@ function ProductDetails() {
             <p>{productDetails.attributes.description}</p>
             <div>
               <label>colors</label>
-              {productDetails.attributes.colors.map((color) =>
+              {productDetails.attributes.colors.map((color) => (
                 <input type="color" key={color} value={color} />
-              )}
+              ))}
             </div>
             <div>
               <label>Amount</label> <br />
               <select id="company">
-                {options.map(value => <option value={value}>{value}</option>)}
+                {option.map((value) => (
+                  <option value={value} key={value}>
+                    {value}
+                  </option>
+                ))}
               </select>
             </div>
-            <div >
-              <button>ADD TO BAG</button>
+            <div>
+              <button  onClick={() =>
+              dispatch({ type: "ADD_TO_CART", payload: { ...productDetails, qty: 1 } })
+            }>ADD TO BAG</button>
             </div>
           </div>
         </div>
-      }
+      )}
     </>
-  )
+  );
 }
-export { ProductDetails };
+export default ProductDetails;

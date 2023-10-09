@@ -1,15 +1,13 @@
-
-import { NavLink } from "react-router-dom"
 import ProductsList from "./Productslist"
 import Filterform from "./Filterform"
-import { ProductDetails } from "./productdetails"
+import  ProductDescription  from "./productdetails"
 function Products() {
     return (
         <div>
             <Filterform />
             <ProductsList />
-            <ProductDetails/>
+            <ProductDescription/>
         </div>
     )
 }
-export default Products
+export default Products;
