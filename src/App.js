@@ -9,7 +9,7 @@ import Register from './components/register/Register';
 import About from './components/about/About';
 import Product from "./components/products/Product";
 import Cart from "./components/cart/Cart";
-import  ProductDescription  from "./components/products/productdetails";
+import ProductDescription from "./components/products/productdetails";
 import './App.css';
 
 function App() {
@@ -25,8 +25,8 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/products" element={<Product />} />
-          <Route exact path="/products/:id" element={<ProductDescription />} />
-          <Route exact path="/cart" element={<Cart/>}/>
+          <Route exact path="/product/:id" element={<ProductDescription />} />
+          <Route exact path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </div>

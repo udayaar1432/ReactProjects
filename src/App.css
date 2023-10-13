@@ -298,9 +298,9 @@ li {
 }
 
 #check {
-  width: 5rem;
+  height: 1.3rem;
+  width: 4rem;
 }
-
 .btnsearch,
 .btnreset {
   width: 13rem;

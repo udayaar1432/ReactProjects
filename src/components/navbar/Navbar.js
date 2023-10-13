@@ -1,5 +1,6 @@
 
 
+import { useEffect } from "react";
 import { BsFillMoonFill } from "react-icons/bs";
 import { BsFillCartDashFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
@@ -7,9 +8,19 @@ import { NavLink } from "react-router-dom";
 
 
 function Navbar() {
+
   const activeclass = ({ isActive }) => {
     return isActive ? "active" : "";
   }
+
+  useEffect(() => {
+
+    // get .data(localstorage)
+    // set required data to the state
+    // then display the state information in jsx
+
+    // navigate("/")
+  }, [])
   return (
 
     <div className="nav">

@@ -1,8 +1,9 @@
+import axios from "axios";
 import { useState } from "react";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Register() {
-  const [login, setLogin] = useState({ Username: "", email: "", password: "", });
+  const [login, setLogin] = useState({ username: "", email: "", password: "", });
   const handleChange = (ev) => {
     const { name, value } = ev && ev.target;
     setLogin((prev) => ({ ...prev, [name]: value }));
@@ -10,8 +11,11 @@ function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    axios.post("https://strapi-store-server.onrender.com/api/auth/local/register", {
+      ...login
+    }).then(function (response) { console.log(response) })
     console.log(login);
-    setLogin({ Username: "", password: "", email: "" });
+    setLogin({ username: "", password: "", email: "" });
   }
 
   return (
@@ -22,8 +26,8 @@ function Register() {
           <label id="name">Username</label> <br />
           <input
             type="text"
-            name="Username"
-            value={login.Username}
+            name="username"
+            value={login.username}
             onChange={handleChange}
             required
           />
@@ -53,11 +57,11 @@ function Register() {
           <button className="btnlogin btn">REGISTER</button>
         </div>
         <p>
-          {/* Already a member?<Link to="/">Login</Link> */}
+          Already a member?<Link to="/">Login</Link>
         </p>
       </form>
     </div>
   );
-  }
+}
 
 export default Register;
