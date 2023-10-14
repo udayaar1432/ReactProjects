@@ -30,7 +30,7 @@ function ProductsList() {
                     <img
                       src={product["attributes"]["image"]}
                       alt="lamp"
-
+                      loading="lazy"
                     />
                     <p>{product["attributes"]["title"]}</p>
                     <span>{product["attributes"]["price"]}</span>

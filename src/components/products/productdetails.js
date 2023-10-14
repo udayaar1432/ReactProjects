@@ -15,6 +15,7 @@ function ProductDetails() {
       .then((res) => res.json())
       .then((res) => setProductDetails(res.data))
   }, [id]);
+  // const {attributesimage,title,company,price} = productDetails;
 
   return (
     <>
@@ -47,12 +48,12 @@ function ProductDetails() {
               </select>
             </div>
             <div>
-              {/* const {id,image,title,company,price} = productDetails.attributes() */}
+
               <button onClick={() =>
                 // update qty from state
                 // add only req fields in payload ; { id: }
 
-                dispatch({ type: "ADD_TO_CART", payload: { id, qty: 1 } })
+                dispatch({ type: "ADD_TO_CART", payload: {id,...productDetails, qty: 0 } })
               }>ADD TO BAG</button>
           </div>
         </div>

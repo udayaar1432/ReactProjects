@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LOGIN_URL = "https://strapi-store-server.onrender.com/api/auth/local";
@@ -7,6 +7,9 @@ const LOGIN_URL = "https://strapi-store-server.onrender.com/api/auth/local";
 function Login() {
   const [login, setLogin] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+
+
+
 
   function handleClickGuest() {
     axios.post(LOGIN_URL, {
@@ -29,6 +32,7 @@ function Login() {
     axios.post(LOGIN_URL, {
       identifier: login.email,
       password: login.password,
+      username:login.username
     }).then((response) => {
       localStorage.setItem("user", JSON.stringify(response.data))
       setLogin({ password: "", email: "" });
@@ -63,7 +67,7 @@ function Login() {
           />
         </div>
         <div>
-          <button className="btnlogin btn">LOGIN</button>
+          <button className="btnlogin btn" >LOGIN</button>
         </div>
         <div>
           <button type="button" onClick={handleClickGuest} className="btnguest btn">GUEST USER</button>
