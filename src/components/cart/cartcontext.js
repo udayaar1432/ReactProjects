@@ -5,7 +5,7 @@ const CartContext = createContext();
 
 const initialState = {
   items: [],
-  count: 1
+  count: 0
 };
 
 const cartReducer = (state, action) => {
@@ -14,10 +14,15 @@ const cartReducer = (state, action) => {
     case "ADD_TO_CART":
       return {
         ...state,
-        items: [...state.items, action.payload],
-        count: state.count + 1
+        items: [...state.items, action.value],
+        count: state.count + action.value.qty
       };
-
+      case "REMOVE_CART":
+      return{
+          ...state,
+          items:state.items.filter((item)=>item.id !== action.payload.id),
+          count: state.count - action.payload.qty
+      }
     case "increment":
       return { count: state.count + 1 };
     case "decrement":

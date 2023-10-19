@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function ProductsList() {
-  const [data, setData] = useState([]);
+function ProductsList(props) {
+  const { products } = props;
 
-  useEffect(() => {
-    fetch("https://strapi-store-server.onrender.com/api/products")
-      .then((res) => res.json())
-      .then((res) => setData(res.data))
-  }, []);
 
   return (
     <div className="main">
       <div>
-        {/* <h3>{data.length} products</h3> */}
+      <h3>{products.length} products</h3>
+
         <div>
           <button onClick="listView()">List</button>
           <button onClick="gridView()">Grid</button>
@@ -21,14 +16,15 @@ function ProductsList() {
         <hr />
       </div>
       <>
-        {data?.length > 0 && data.map((product) => (
+        {products?.length > 0 && products.map((product) => (
           <div key={product.id}>
             <div>
+
               <div className="products">
                 <div>
                   <Link to={"/product/" + product.id}>
                     <img
-                      src={product["attributes"]["image"]}
+                      src={`${product["attributes"]["image"]}`}
                       alt="lamp"
                       loading="lazy"
                     />

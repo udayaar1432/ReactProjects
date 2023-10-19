@@ -6,9 +6,8 @@ const LOGIN_URL = "https://strapi-store-server.onrender.com/api/auth/local";
 
 function Login() {
   const [login, setLogin] = useState({ email: "", password: "" });
+
   const navigate = useNavigate();
-
-
 
 
   function handleClickGuest() {
@@ -40,10 +39,9 @@ function Login() {
     })
     // Navigate("/")
   }
-
-
   return (
     <div className="login">
+
       <h3>Login</h3>
       <form onSubmit={handleSubmit}>
         <div>
